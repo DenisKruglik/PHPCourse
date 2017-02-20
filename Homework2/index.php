@@ -47,7 +47,7 @@
 	$cities=array();
 	$biggest_city=array();
 	$longest_name_city=array();
-	$N=10;
+	$N=20;
 	$all_children=0;
 	$all_balance=0;
 	$poor_people=0;
@@ -142,7 +142,7 @@
 	}
 	$avg_income=$all_balance/(count($people)+$all_children);
 	foreach ($people as $key => $value) {
-		if ($value[balance] <= $avg_income) {
+		if ($value[balance] <= $avg_income*0.3333333333333333333333333) {
 			$poor_people++;
 		}
 	}
@@ -159,7 +159,8 @@
 	<pre><?php
 		echo "		Самое длинное отчество - $longest_third_name, их количество - $third_name_counter<br>
 		Людей без детей - $no_children<br>
-		Людей с одним ребёнком - $two_children<br>
+		Людей с одним ребёнком - $one_child<br>
+		Людей с двумя детьми - $two_children<br>
 		Людей с тремя детьми - $three_children<br>
 		Людей с четырьмя детьми - $four_children<br>
 		Людей с пятью детьми - $five_children<br>
