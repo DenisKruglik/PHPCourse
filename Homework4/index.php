@@ -16,12 +16,12 @@
 		}
 	}
 	for ($i = 0; $i < $people_length; $i++) { 
-		$people[$i][name]=explode(" ", $people[$i][name]);
-		$people[$i][name][last_name] = $people[$i][name][0];
-		$people[$i][name][first_name] = $people[$i][name][1];
-		$people[$i][name][third_name] = $people[$i][name][2];
+		$people[$i]["name"]=explode(" ", $people[$i]["name"]);
+		$people[$i]["name"]["last_name"] = $people[$i]["name"][0];
+		$people[$i]["name"]["first_name"] = $people[$i]["name"][1];
+		$people[$i]["name"]["third_name"] = $people[$i]["name"][2];
 		for ($j = 0; $j < 3; $j++) { 
-			unset($people[$i][name][$j]);
+			unset($people[$i]["name"][$j]);
 		}
 	}
 	array_pop($people);
