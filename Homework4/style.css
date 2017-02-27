@@ -1,0 +1,38 @@
+section.task1 label{
+	display: table-row;
+}
+section.task1 form{
+	display: table;
+}
+section.task2 form{
+	margin-top: 30px;
+}
+section.task1 label *{
+	display: table-cell;
+}
+.log{
+	overflow: auto;
+	max-height: 500px;
+	border: 1px solid black;
+	width: 500px;
+}
+textarea{
+	display: block;
+	width: 250px;
+	height: 100px;
+	resize: none;
+}
+section.task2 label{
+	display: block;
+}
+img{
+	width: 64px;
+	float: left;
+}
+.post div{
+	clear: both;
+}
+.post{
+	clear: both;
+	margin: 10px;
+}
