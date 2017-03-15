@@ -1,0 +1,17 @@
+img{
+	width: 120px;
+	float: left;
+	margin-right: 10px;
+}
+.good{
+	clear: both;
+	margin: 10px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.refs{
+	float: right;
+}
+.wrapper{
+	overflow: overlay;
+}

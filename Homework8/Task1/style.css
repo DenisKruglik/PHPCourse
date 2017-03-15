@@ -1,0 +1,40 @@
+body{
+	font-family: sans-serif;
+}
+form{
+	display: block;
+    width: 30%;
+    margin: 0 auto;
+}
+table{
+	-webkit-border-horizontal-spacing: 0;
+	margin: 10px auto;
+}
+td{
+	border-bottom: 1px solid #000;
+	border-collapse: collapse;
+	padding: 5px;
+}
+thead{
+	background: #333;
+	color: white;
+}
+form input {
+    background-color: #333;
+    font-family: inherit;
+    border: 0;
+    color: #fff;
+    padding: 6px 12px;
+}
+form textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    height: 8em;
+    outline: none;
+}
+p.error {
+    text-align: center;
+    color: #900;
+    padding: 10px 15%;
+}

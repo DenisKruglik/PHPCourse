@@ -1,0 +1,16 @@
+thead{
+	background: #333;
+	color: white;
+}
+tbody td{
+	border-bottom: 1px solid black;
+}
+td{
+	padding: 5px;
+}
+table{
+	border-collapse: collapse;
+}
+body{
+	font-family: sans-serif;
+}
