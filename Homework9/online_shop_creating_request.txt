@@ -1,0 +1,107 @@
+CREATE TABLE IF NOT EXISTS `online_shop`.`categories` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(45) NOT NULL,
+  `description` TEXT NULL,
+  `img` VARCHAR(1000) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`goods` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cat_id` INT NOT NULL,
+  `title` VARCHAR(1000) NOT NULL,
+  `manufacturer` VARCHAR(1000) NOT NULL,
+  `country` VARCHAR(45) NOT NULL,
+  `price` INT NOT NULL,
+  `description` TEXT NULL,
+  `img` VARCHAR(1000) NULL,
+  `added` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `src_category_idx` (`cat_id` ASC),
+  CONSTRAINT `src_category`
+    FOREIGN KEY (`cat_id`)
+    REFERENCES `online_shop`.`categories` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `bucket_id` INT NOT NULL,
+  `ip` VARCHAR(45) NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(1000) NULL,
+  `sex` VARCHAR(45) NULL,
+  `img` VARCHAR(1000) NULL,
+  `age` INT NULL,
+  `registered` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  INDEX `bucket_id_idx` (`bucket_id` ASC),
+  CONSTRAINT `bucket_id`
+    FOREIGN KEY (`bucket_id`)
+    REFERENCES `online_shop`.`buckets` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`buckets` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `owner_idx` (`user_id` ASC),
+  CONSTRAINT `owner`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `online_shop`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`goods_buckets` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `good` INT NOT NULL,
+  `bucket` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `good_connection_idx` (`good` ASC),
+  INDEX `bucket_connection_idx` (`bucket` ASC),
+  CONSTRAINT `good_connection`
+    FOREIGN KEY (`good`)
+    REFERENCES `online_shop`.`goods` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `bucket_connection`
+    FOREIGN KEY (`bucket`)
+    REFERENCES `online_shop`.`buckets` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`reviews` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `good_id` INT NOT NULL,
+  `author` VARCHAR(45) NOT NULL,
+  `mark` INT NULL,
+  `text` TEXT NULL,
+  `added` DATETIME NOT NULL,
+  `likes` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `src_good_idx` (`good_id` ASC),
+  CONSTRAINT `src_good`
+    FOREIGN KEY (`good_id`)
+    REFERENCES `online_shop`.`goods` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+
+CREATE TABLE IF NOT EXISTS `online_shop`.`views` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `good_id` INT NOT NULL,
+  `user` VARCHAR(45) NOT NULL,
+  `date` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `viewed_good_idx` (`good_id` ASC),
+  CONSTRAINT `viewed_good`
+    FOREIGN KEY (`good_id`)
+    REFERENCES `online_shop`.`goods` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB

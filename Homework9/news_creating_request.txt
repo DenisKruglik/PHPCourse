@@ -1,0 +1,84 @@
+﻿CREATE TABLE IF NOT EXISTS `news`.`categories` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(1000) NOT NULL,
+  `description` TEXT NULL,
+  `img` VARCHAR(1000) NULL,
+  PRIMARY KEY (`id`))
+
+CREATE TABLE IF NOT EXISTS `news`.`posts` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cat_id` INT NOT NULL,
+  `title` VARCHAR(1000) NOT NULL,
+  `author` VARCHAR(1000) NOT NULL,
+  `date` DATETIME NOT NULL,
+  `content` LONGTEXT NOT NULL,
+  `likes` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `cat_id_idx` (`cat_id` ASC),
+  CONSTRAINT `cat_id`
+    FOREIGN KEY (`cat_id`)
+    REFERENCES `news`.`categories` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+
+CREATE TABLE IF NOT EXISTS `news`.`comments` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `post_id` INT NULL,
+  `author` VARCHAR(1000) NOT NULL,
+  `date` DATETIME NOT NULL,
+  `content` MEDIUMTEXT NULL,
+  `likes` INT NULL,
+  `replies` INT NULL,
+  `reply_to` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `post_id_idx` (`post_id` ASC),
+  INDEX `reply_to_idx` (`reply_to` ASC),
+  CONSTRAINT `post_id`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `news`.`posts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `reply_to`
+    FOREIGN KEY (`reply_to`)
+    REFERENCES `news`.`comments` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+
+
+CREATE TABLE IF NOT EXISTS `news`.`tags` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(1000) NOT NULL,
+  `description` MEDIUMTEXT NULL,
+  PRIMARY KEY (`id`))
+
+CREATE TABLE IF NOT EXISTS `news`.`views` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `post_id` INT NOT NULL,
+  `user` VARCHAR(1000) NOT NULL,
+  `ip` VARCHAR(45) NOT NULL,
+  `date` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `post_id_idx` (`post_id` ASC),
+  CONSTRAINT `src_post`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `news`.`posts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+
+CREATE TABLE IF NOT EXISTS `news`.`posts_tags` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `post_id` INT NOT NULL,
+  `tag_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `post_id_idx` (`post_id` ASC),
+  INDEX `tag_id_idx` (`tag_id` ASC),
+  CONSTRAINT `post_connection`
+    FOREIGN KEY (`post_id`)
+    REFERENCES `news`.`posts` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `tag_connection`
+    FOREIGN KEY (`tag_id`)
+    REFERENCES `news`.`tags` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
