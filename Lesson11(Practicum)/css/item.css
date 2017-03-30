@@ -1,0 +1,80 @@
+main{
+	width: 80%;
+	margin: 0 10%;
+	clear: both;
+	padding: 60px 0;
+}
+main section.main{
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-bottom: 40px;
+}
+main section.main figure{
+	float: left;
+	width: 100%;
+}
+.main img{
+	width: 30%;
+	float: left;
+	margin-right: 5%;
+	border: 2px solid #777;
+	box-sizing: border-box;
+}
+.main figcaption{
+	display: block;
+	width: 65%;
+	float: right;
+}
+.main h2{
+	margin-bottom: 20px;
+	font-size: 170%;
+}
+.main figcaption p{
+	display: inline-block;
+	padding-right: 10px;
+	font-size: 14px;
+}
+.main .price{
+	margin-top: 20px;
+	font-size: 22px;
+	color: #cc8800;
+	margin-bottom: 5px;
+
+}
+.main form{
+
+}
+.main form input{
+	padding: 5px 10px;
+	border: 1px solid #111;
+	font-size: 14px;
+}
+.main form input[type='submit']{
+	background-color: #111;
+	color: #fff;
+	cursor: pointer;
+}
+.main .description{
+	clear: both;
+	margin-top: 30px;
+	font-size: 14px;
+}
+
+.gallery{
+	margin-bottom: 40px;
+}
+.gallery h2{
+	margin-bottom: 20px;
+}
+.gallery ul{
+	font-size: 3px;
+}
+.gallery li{
+	display: inline-block;
+	height: 200px;
+
+}
+.gallery img{
+	height: 200px;
+}

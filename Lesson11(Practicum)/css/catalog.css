@@ -1,0 +1,37 @@
+main{
+	width: 80%;
+	margin: 0px 10%;
+	padding: 60px 0;
+	clear: both;
+}
+section.search{
+	margin-bottom: 35px;
+}
+section.search form{
+	display: block;
+}
+.search form label{
+	display: inline-block;
+	padding-right: 15px;
+}
+.search form label *{
+	display: block;
+
+}
+.search form label span{
+	font-size: 14px;
+}
+.search input[type='text'], .search input[type='number'], .search select{
+	border: 1px solid #111;
+	padding: 4px 7px;
+	font-size: 14px;
+	outline: none;
+}
+.search input[type='submit']{
+	border: 1px solid #111;
+	padding: 4px 7px;
+	font-size: 14px;
+	background-color: #111;
+	color: #fff;
+	cursor: pointer;
+}

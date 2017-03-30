@@ -1,0 +1,100 @@
+body{
+	margin: 0;
+	font-family: "Open Sans",Verdana, sans-serif;
+	background-color: #f5f5f5;
+
+}
+*{
+
+	color: #111;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+
+header{
+
+	display: block;
+	float: left;
+	width: 80%;
+	margin: 30px 10%;
+
+}
+header>a{
+	display: block;
+	float: left;
+	width: 30%;
+	margin-right: 5%;
+}
+header>a img{
+	height:70px;
+}
+header nav{
+	float: right;
+	width: 50%;
+	background-color: #111;
+	padding: 5px 0;
+	margin: 15px 0;
+}
+header ul{
+	display: block;
+	width: 100%;
+	text-align: right;
+	float: left;
+}
+header ul li{
+	display: inline-block;
+}
+header ul li a{
+	display: block;
+	text-transform: uppercase;
+	padding: 2px 15px;
+	font-size: 80%;
+	color: #fff;
+}
+header ul li a:hover{
+
+	color: #cc8800;
+}
+
+i{
+	color: #cc8800;
+	font-style: normal;
+}
+ul.items{
+
+	display: block;
+	clear: both;
+	margin: 20px 0;
+}
+ul.items .item{
+	display: inline-block;
+	vertical-align: top;
+	width: 200px;
+	margin: 5px;
+	padding: 8px;
+	background-color: #fff;
+	box-shadow: -2px 2px 4px #eee;
+}
+.item img{
+	width: 100%;
+}
+.item h3{
+	font-size: 15px;
+	margin-bottom: 5px;
+}
+.item p{
+	font-size: 13px;
+	float: left;
+	margin: 0 5px; 
+}
+.item p.price{
+	clear: both;
+	float: none;
+	font-size: 14px;
+	margin: 0;
+	padding-top: 5px;
+	text-align: center;
+	color: #cc8800;;
+}

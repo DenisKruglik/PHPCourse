@@ -1,0 +1,56 @@
+main{
+	width: 80%;
+	clear: both;
+	margin: 0 10%;
+	padding: 40px 0;
+}
+main form{
+	display: block;
+	margin-bottom: 40px;
+}
+main form h2{
+	margin-bottom: 20px;
+}
+main form label{
+	display: inline-block;
+	margin-bottom: 10px;
+	width: 45%;
+	margin-right: 4%;
+}
+main form label *{
+	display: block;
+}
+main form label datalist{
+	display: none;
+}
+main form label input{
+	display: block;
+	padding: 5px 10px;
+	width: 100%;
+	border: 1px solid #111;
+	font-size: 15px;
+	box-sizing: border-box;
+}
+main form input[type='submit']{
+	display: inline-block;
+	padding: 8px 15px;
+	color: #fff;
+	background: #111;
+	border: 0;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+main p{
+	display: inline-block;
+
+}
+main p a{
+	display: inline-block;
+	padding: 8px 15px;
+	border: 1px solid #111;
+}
+main p a:hover{
+	border-color: #cc8800;
+	color: #cc8800;
+}
